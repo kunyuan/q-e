@@ -1,6 +1,7 @@
 build/
 /build_*/
 .vscode/
+.history
 
 *~
 *.a
