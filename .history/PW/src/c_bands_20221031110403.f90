@@ -102,9 +102,9 @@ SUBROUTINE c_bands( iter )
      !
      ! ... Set k-point, spin, kinetic energy, needed by Hpsi
      !
-     current_k = ik ! k-point index
+     current_k = ik
      !
-     IF (lda_plus_u .AND. lda_plus_u_kind.EQ.2) CALL phase_factor(ik) !DFT+U
+     IF (lda_plus_u .AND. lda_plus_u_kind.EQ.2) CALL phase_factor(ik)
      !
      IF ( lsda ) current_spin = isk(ik) ! choose spin channel
      !
@@ -117,7 +117,7 @@ SUBROUTINE c_bands( iter )
      ! ... read in wavefunctions from the previous iteration
      !
      IF ( nks > 1 .OR. lelfield ) &
-          CALL get_buffer ( evc, nwordwfc, iunwfc, ik ) ! read in wavefunctions
+          CALL get_buffer ( evc, nwordwfc, iunwfc, ik )
      IF ( nks > 1 .OR. lelfield ) CALL using_evc(2)
      !
      ! ... Needed for DFT+Hubbard
@@ -129,7 +129,7 @@ SUBROUTINE c_bands( iter )
      ! ... (skip only in charge self-consistent DFT+DMFT calculations)
      !
      IF (.NOT. ( dmft .AND. .NOT. dmft_updated ) ) THEN
-        call diag_bands ( iter, ik, avg_iter ) ! diagonalize the hamiltonian
+        call diag_bands ( iter, ik, avg_iter )
      END IF
      !
      ! ... save wave-functions to be used as input for the
@@ -707,8 +707,6 @@ SUBROUTINE diag_bands( iter, ik, avg_iter )
           !
           !$acc update self(vkb)
           CALL calbec( npw, vkb, evcel, bec_evcel )
-          ! evcel: electron wave functions
-          !SUBROUTINE calbec_k ( npw, beta, psi, betapsi, nbnd )
           !
        ENDIF
        !
@@ -1227,7 +1225,7 @@ SUBROUTINE c_bands_nscf( )
      ! 
      ! ... More stuff needed by the hamiltonian: nonlocal projectors
      !
-     IF ( nkb > 0 ) CALL init_us_2( ngk(ik), igk_k(1,ik), xk(1,ik), vkb , .true.) !vkb:  beta functions 
+     IF ( nkb > 0 ) CALL init_us_2( ngk(ik), igk_k(1,ik), xk(1,ik), vkb , .true.)
      !
      ! ... Needed for DFT+Hubbard
      !

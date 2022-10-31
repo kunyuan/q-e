@@ -707,8 +707,6 @@ SUBROUTINE diag_bands( iter, ik, avg_iter )
           !
           !$acc update self(vkb)
           CALL calbec( npw, vkb, evcel, bec_evcel )
-          ! evcel: electron wave functions
-          !SUBROUTINE calbec_k ( npw, beta, psi, betapsi, nbnd )
           !
        ENDIF
        !

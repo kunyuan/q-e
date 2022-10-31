@@ -155,8 +155,8 @@ SUBROUTINE electrons()
      !
      iter = iter + 1
      !
-     ! ... ne at first sSelf-consistency loop. For hybrid functionals the exchange potential
-     ! ... is calculated with the orbitals at previous step (notep)
+     ! ... Self-consistency loop. For hybrid functionals the exchange potential
+     ! ... is calculated with the orbitals at previous step (none at first step)
      !
      CALL electrons_scf ( printout, exxen )
      !

@@ -707,8 +707,6 @@ SUBROUTINE diag_bands( iter, ik, avg_iter )
           !
           !$acc update self(vkb)
           CALL calbec( npw, vkb, evcel, bec_evcel )
-          ! evcel: electron wave functions
-          !SUBROUTINE calbec_k ( npw, beta, psi, betapsi, nbnd )
           !
        ENDIF
        !
@@ -1227,7 +1225,7 @@ SUBROUTINE c_bands_nscf( )
      ! 
      ! ... More stuff needed by the hamiltonian: nonlocal projectors
      !
-     IF ( nkb > 0 ) CALL init_us_2( ngk(ik), igk_k(1,ik), xk(1,ik), vkb , .true.) !vkb:  beta functions 
+     IF ( nkb > 0 ) CALL init_us_2( ngk(ik), igk_k(1,ik), xk(1,ik), vkb , .true.)
      !
      ! ... Needed for DFT+Hubbard
      !

@@ -34,7 +34,7 @@ SUBROUTINE rotate_wfc( npwx, npw, nstart, gstart, nbnd, psi, npol, overlap, evc,
   !! first G with nonzero norm
   INTEGER, INTENT(IN) :: npol
   !! number of spin polarizations
-  LOGICAL, INTENT(IN) :: overlap ! rename from okvan
+  LOGICAL, INTENT(IN) :: overlap
   !! if .FALSE. \(S|psi\rangle\) not needed
   COMPLEX(DP), INTENT(INOUT) :: psi(npwx*npol,nstart)
   !! I/O eigenvectors (may overlap)

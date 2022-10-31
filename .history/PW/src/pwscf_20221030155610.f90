@@ -9,12 +9,10 @@
 ! PROGRAM pwscf
 !   ! 生成MPI的相关参数，分配并行任务
 !   CALL mp_startup( start_images=.TRUE. )
-! See https://zhuanlan.zhihu.com/p/447440049 for more details
 !   ! 打开各类文件（波函数，电荷密度等），检查系统变量，输出软件信息
 !   CALL environment_start( 'PWSCF' )
 !   ! 读取输入文件
 !   CALL read_input_file( 'PW', input_file_ )
-! See https://zhuanlan.zhihu.com/p/448398288 for more details
 !   ! 主体计算
 !   CALL run_pwscf( exit_status )
 !   ! 对角化部分的清理，会在哈密顿量对角化部分解释

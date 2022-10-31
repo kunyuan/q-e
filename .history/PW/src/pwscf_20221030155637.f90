@@ -9,7 +9,6 @@
 ! PROGRAM pwscf
 !   ! 生成MPI的相关参数，分配并行任务
 !   CALL mp_startup( start_images=.TRUE. )
-! See https://zhuanlan.zhihu.com/p/447440049 for more details
 !   ! 打开各类文件（波函数，电荷密度等），检查系统变量，输出软件信息
 !   CALL environment_start( 'PWSCF' )
 !   ! 读取输入文件
